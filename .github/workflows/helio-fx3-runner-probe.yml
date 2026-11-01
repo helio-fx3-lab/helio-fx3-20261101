@@ -1,0 +1,17 @@
+# helio-fx3: proves a job starts on a hosted runner in this org (no environment, no approval). Not a Helio lane workflow.
+name: helio-fx3-runner-probe
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Runner started
+        shell: bash
+        run: echo "helio-fx3 runner probe run=$GITHUB_RUN_ID"
